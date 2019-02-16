@@ -1,0 +1,35 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown] Notebook examining media house value (medv) per the example in Chapter 3.6.2 of "An Introduction to Statistical Learning" (James, Witten, Hastie & Tibshirani).
+
+First, we read in the required libraries: MASS and ISLR.  ISLR contains the datasets used in the aforementioned textbook. 
+
+```{r}
+library(MASS)
+library(ISLR)
+```
+
+We are going to try to predict median home value using 13 predictors in the "Boston" dataset from the MASS library.  We use the fix command to fix the dataset, and then use the "names" function to retrieve the feature names.
+
+```{r}
+fix(Boston)
+names(Boston)
+```
+
+
+We start by performing a linear (least squares) regression using the lm() function. We first create a model using lstat (the % households with a low socioeconomic status) as the sole predictor.
+
+```{r}
+lm.fit=lm(medv~lstat, data=Boston)
+#print out some of the basic info about the model lm.fit
+lm.fit
+```
+
+To get more information about this model, we do the following:
+```{r}
+summary(lm.fit)
+```
+
