@@ -79,4 +79,4 @@ Next, we take a look at some diagnostic plots associated with the model lm.fit:
 par(mfrow=c(2,2))
 plot(lm.fit)
 ```
-We observe some non-linearity in this model based on the residuals plot (it is curved, not flat and evenly distributed). Next, we will try to improve the linear model by incorporating additional features.
+We observe some non-linearity in this model based on the residuals plot (it is curved, not flat and evenly distributed). Next, we will try to improve the linear model by incorporating additional features. That will be in the next session.
