@@ -29,7 +29,47 @@ lm.fit
 ```
 
 To get more information about this model, we do the following:
+
 ```{r}
 summary(lm.fit)
+```
+
+We can find the details about what pieces of information are in the lm.fit object by calling the names() function again:
+
+```{r}
+names(lm.fit)
+```
+
+We can access any of these features using the notation lmfit$feature.  For example:
+
+```{r}
+lm.fit$coefficients
+```
+
+Observe the confidence intervals on the model's intercept and slope using the confint() function:
+
+```{r}
+confint(lm.fit)
+```
+
+Furthermore, we can use the lm.fit model to make a prediction based on specified lstat values.  For example,
+
+```{r}
+lstat_test = c(5,10,15)
+predict(lm.fit, data.frame(lstat_test), interval="confidence")
+```
+
+We can also plot the data:
+```{r}
+plot(Boston$lstat,Boston$medv) #scatterplot of the data
+abline(lm.fit) #draws the least squares line
+```
+
+```{r}
+#add some color to the plot
+percentage_low_socioeconomic_households = Boston$lstat
+median_home_value = Boston$medv
+plot(percentage_low_socioeconomic_households,median_home_value, col="red", pch=20) #scatterplot of the data
+abline(lm.fit, lwd=3) #draws the least squares line
 ```
 
