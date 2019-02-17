@@ -73,3 +73,10 @@ plot(percentage_low_socioeconomic_households,median_home_value, col="red", pch=2
 abline(lm.fit, lwd=3) #draws the least squares line
 ```
 
+Next, we take a look at some diagnostic plots associated with the model lm.fit:
+
+```{r}
+par(mfrow=c(2,2))
+plot(lm.fit)
+```
+We observe some non-linearity in this model based on the residuals plot (it is curved, not flat and evenly distributed). Next, we will try to improve the linear model by incorporating additional features.
