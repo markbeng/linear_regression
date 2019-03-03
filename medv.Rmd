@@ -18,6 +18,11 @@ We are going to try to predict median home value using 13 predictors in the "Bos
 fix(Boston)
 names(Boston)
 ```
+Check the distribution of median home values first:
+
+```{r}
+hist(Boston$medv)
+```
 
 
 We start by performing a linear (least squares) regression using the lm() function. We first create a model using lstat (the % households with a low socioeconomic status) as the sole predictor.
@@ -85,8 +90,27 @@ We observe some non-linearity in this model based on the residuals plot (it is c
 plot(hatvalues(lm.fit))
 which.max(hatvalues(lm.fit))
 ```
+
 Let's add in the age independent variable to make a model with two predictors.
 ```{r}
 lm.fit = lm(medv~lstat+age, data=Boston)
 summary(lm.fit)
 ```
+
+Now we can try fitting a model with all 13 variables:
+
+```{r}
+lm.fit=lm(medv~., data=Boston)
+summary(lm.fit)
+```
+Check the R-squared value in the model.
+```{r}
+summary(lm.fit)$r.sq
+```
+Check the residual standard error (RSE) (note that this measure is in the units of y (median home value in thousands of dollars):
+```{r}
+summary(lm.fit)$sigma
+```
+
+
+We can check the variance inflation factor (VIF) for each feature to check for multicolinearity.  This function is available through the car library.
