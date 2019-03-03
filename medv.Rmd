@@ -80,3 +80,13 @@ par(mfrow=c(2,2))
 plot(lm.fit)
 ```
 We observe some non-linearity in this model based on the residuals plot (it is curved, not flat and evenly distributed). Next, we will try to improve the linear model by incorporating additional features. That will be in the next session.
+
+```{r}
+plot(hatvalues(lm.fit))
+which.max(hatvalues(lm.fit))
+```
+Let's add in the age independent variable to make a model with two predictors.
+```{r}
+lm.fit = lm(medv~lstat+age, data=Boston)
+summary(lm.fit)
+```
