@@ -119,4 +119,19 @@ We can check the variance inflation factor (VIF) for each feature to check for m
 library(car)
 vif(lm.fit)
 ```
+Test out a new model using lstat, age, and lstat x age as predictors:
+```{r}
+lm.fit1 = lm(medv~lstat*age, data=Boston)
+summary(lm.fit1)
+```
 
+We can also try to use non-linear transformations of the predictors in our model.  For example, we can create a quadratic predictor.
+```{r}
+lm.fit2 = lm(medv~lstat+I(lstat^2), data=Boston)
+summary(lm.fit2)
+```
+```{r}
+par(mfrow=c(2,2))
+plot(lm.fit2)
+```
+The residuals seem flat and without a trend/pattern. 
