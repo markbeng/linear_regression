@@ -29,7 +29,7 @@ We can investigate the encoding using the "contrasts"" function.
 ```{r}
 contrasts(Carseats$ShelveLoc)
 ```
-Next we check the residuals of the fit:
+Next we check the residuals of the fit :
 ```{r}
 par(mfrow=c(2,2))
 plot(lm.fit2)
