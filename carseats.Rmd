@@ -4,3 +4,34 @@ output: html_document
 ---
 
 This document is an example of regression analysis with data where there are qualitative predictors.  It utilizes the Carseats data from the ISLR library.
+
+```{r}
+library(ISLR)
+fix(Carseats)
+names(Carseats)
+```
+
+```{r}
+hist(Carseats$Sales)
+```
+
+We'll fit a linear model using all of the available predictors, plus two interaction terms:  Income-Advertising and Price-Age.
+
+```{r}
+lm.fit = lm(Sales~.+Income:Advertising+Price:Age, data=Carseats)
+summary(lm.fit)
+```
+This model has 9 predictors with significant Beta estimates.  Also, the overall fit of the model (based on R-squared) is quite good.
+
+Note that the qualitative variable ShelveLoc has 3 levels (Good, Medium, and Bad) has been automatically coded as 2 binary dummy variables: ShelveLocGood and ShelveLocMedium.  ShelveLocBad is indicated by both of the aforementioned variables having values of zero.
+
+We can investigate the encoding using the "contrasts"" function.
+```{r}
+contrasts(Carseats$ShelveLoc)
+```
+Next we check the residuals of the fit:
+```{r}
+par(mfrow=c(2,2))
+plot(lm.fit2)
+```
+
