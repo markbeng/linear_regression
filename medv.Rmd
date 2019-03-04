@@ -134,4 +134,4 @@ summary(lm.fit2)
 par(mfrow=c(2,2))
 plot(lm.fit2)
 ```
-The residuals seem flat and without a trend/pattern. 
+The residuals seem flat and without a trend/pattern.  This indicates the quadratic term addition resulted in a better fit. 
