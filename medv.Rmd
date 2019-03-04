@@ -114,3 +114,9 @@ summary(lm.fit)$sigma
 
 
 We can check the variance inflation factor (VIF) for each feature to check for multicolinearity.  This function is available through the car library.
+
+```{r}
+library(car)
+vif(lm.fit)
+```
+
