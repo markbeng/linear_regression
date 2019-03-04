@@ -1,0 +1,6 @@
+---
+title: "Carseats"
+output: html_document
+---
+
+This document is an example of regression analysis with data where there are qualitative predictors.  It utilizes the Carseats data from the ISLR library.
